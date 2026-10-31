@@ -1,0 +1,262 @@
+/* ===== Variáveis de cor (tema claro e escuro automático) ===== */
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --muted: #6b6560;
+  --border: #e7e5e4;
+  --accent: #0a66c2; /* azul do LinkedIn */
+  --accent-hover: #084e96;
+  --code-bg: #f1efed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --surface: #1b1b1b;
+    --text: #ecebe9;
+    --muted: #a29d97;
+    --border: #2e2d2b;
+    --accent: #6cb4ff;
+    --accent-hover: #9ccbff;
+    --code-bg: #242322;
+  }
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ===== Cabeçalho ===== */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.site-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.site-title:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.975rem;
+}
+
+/* ===== Conteúdo principal ===== */
+main {
+  padding: 2.5rem 0 3rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+.hero p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+section {
+  margin-top: 3rem;
+}
+
+section h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ===== Lista de posts ===== */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.post-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.post-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.post-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.post-card h3 a {
+  color: var(--text);
+}
+
+.post-card h3 a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.post-meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.post-card p:last-child {
+  margin: 0;
+}
+
+/* ===== Página de post ===== */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+article h1 {
+  font-size: 2.1rem;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+article h2 {
+  font-size: 1.45rem;
+  margin: 2.25rem 0 0.75rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text);
+  border: 0;
+  padding: 0;
+}
+
+article p {
+  margin: 0 0 1.25rem;
+}
+
+article ul,
+article ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.5rem;
+}
+
+article li {
+  margin-bottom: 0.4rem;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+}
+
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ===== Rodapé ===== */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ===== Telas pequenas ===== */
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .hero h1,
+  article h1 {
+    font-size: 1.65rem;
+  }
+}
